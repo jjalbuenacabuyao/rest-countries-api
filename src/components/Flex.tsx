@@ -1,10 +1,10 @@
 import React from 'react'
 
 type Props = {
-  direction: string,
-  gap: string,
-  children: React.ReactNode,
-  className: string,
+  direction?: string,
+  gap?: string,
+  children: JSX.Element | JSX.Element[],
+  className?: string,
 }
 
 const FLex = ({ direction, gap, children, className }: Props) => {

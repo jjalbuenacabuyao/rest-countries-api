@@ -1,13 +1,23 @@
 import React from 'react'
 import FLex from './Flex'
 
-type Props = {}
+type Props = {
+  setFilter: React.Dispatch<React.SetStateAction<string>>,
+}
 
-const SearchAndFilter = (props: Props) => {
+const SearchAndFilter = ({setFilter}: Props) => {
   return (
     <FLex>
-      <input type="search" name="search" id="search" />
-      <select name="Filter by Region" id="filter">
+      <input
+        type="search"
+        name="search"
+        id="search"
+        onChange={(e) => setFilter(`https://restcountries.com/v3.1/name/${e.target.value}`)} />
+
+      <select
+        name="Filter by Region"
+        id="filter"
+        onChange={(e) => setFilter(`https://restcountries.com/v3.1/region/${e.target.value}`)}>
         <option value="africa">Africa</option>
         <option value="america">America</option>
         <option value="asia">Asia</option>

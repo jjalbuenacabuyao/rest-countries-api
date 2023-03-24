@@ -1,11 +1,17 @@
-import React from 'react'
-import { Header } from '../components'
+import React, { useState } from 'react'
+import { Header, SearchAndFilter, Main } from '../components'
 
 type Props = {}
 
 const Homepage = (props: Props) => {
+  const [filter, setFilter] = useState("");
+
   return (
-    <Header />
+    <>
+      <Header />
+      <SearchAndFilter setFilter={setFilter} />
+      <Main filter={filter}/>
+    </>
   )
 }
 

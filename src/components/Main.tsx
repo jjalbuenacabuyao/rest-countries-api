@@ -19,6 +19,7 @@ const Main = ({ filter }: Props) => {
     url !== "" ? fetchData(url) : fetchData(defaultUrl);
   }, [url])
 
+  //Only first six countries are displayed in homepage
   const featuredCountryCount : number = 6;
 
   const featuredCountries : Array<object> = [data.filter(item => data.indexOf(item) < featuredCountryCount)];

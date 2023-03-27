@@ -12,7 +12,7 @@ const Main = ({ filter }: Props) => {
   const [data, setData] = useState<Array<object>>([]);
 
   useEffect(() => {
-    async function fetchData(url: string) {
+    async function fetchData(url: string) : Promise<void> {
       const response = await axios(url);
       setData(response.data);
     }

@@ -12,14 +12,16 @@ const Main = ({ filter }: Props) => {
   const [data, setData] = useState<Array<object>>([]);
 
   useEffect(() => {
-    async function getData(url: string) {
+    async function fetchData(url: string) {
       const response = await axios(url);
       setData(response.data);
     }
-    url !== "" ? getData(url) : getData(defaultUrl);
+    url !== "" ? fetchData(url) : fetchData(defaultUrl);
   }, [url])
 
-  const [country1, country2, country3, country4, country5, country6] = data;
+  const featuredCountryCount : number = 6;
+
+  const featuredCountries : Array<object> = [data.filter(item => data.indexOf(item) < featuredCountryCount)];
 
   return (
     <main>

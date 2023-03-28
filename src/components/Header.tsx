@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { MdDarkMode, MdLightMode } from "react-icons/md"
-import FLex from './Flex'
+import Flex from './Flex'
 
 const Header = () => {
   const [theme, setTheme] = useState("dark");
@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header className='px-5 py-8'>
-      <FLex justify='between'>
+      <Flex justify='between'>
         <a href="#" className='font-bold'>
           Where in the world?
         </a>
@@ -21,7 +21,7 @@ const Header = () => {
           {theme === "dark" ? <MdLightMode size="1.5rem" /> : <MdDarkMode size="1.5rem" />
           }
         </button>
-      </FLex>
+      </Flex>
     </header>
   )
 }

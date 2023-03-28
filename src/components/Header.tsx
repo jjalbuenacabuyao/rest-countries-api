@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header className='px-5 py-8'>
-      <FLex className='justify-between'>
+      <FLex justify='between'>
         <a href="#" className='font-bold'>
           Where in the world?
         </a>

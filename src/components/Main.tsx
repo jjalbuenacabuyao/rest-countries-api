@@ -6,9 +6,9 @@ type Props = {
 }
 
 const Main = ({ filter }: Props) => {
-  // for filters : subregion,tld,currencies,flag,languages
+  // for filters : subregion,tld,currencies,languages
   const url: string = filter;
-  const defaultUrl: string = "https://restcountries.com/v3.1/all?fields=name,population,region,capital";
+  const defaultUrl: string = "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags";
   const [data, setData] = useState<Array<object>>([]);
 
   useEffect(() => {
@@ -23,6 +23,9 @@ const Main = ({ filter }: Props) => {
   const featuredCountryCount : number = 6;
 
   const featuredCountries : Array<object> = [data.filter(item => data.indexOf(item) < featuredCountryCount)];
+
+  console.log(featuredCountries);
+  
 
   return (
     <main>

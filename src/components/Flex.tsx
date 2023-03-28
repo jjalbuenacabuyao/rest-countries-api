@@ -7,7 +7,7 @@ type Props = {
   className?: string,
 }
 
-const FLex = ({ direction, gap, children, className }: Props) => {
+const Flex = ({ direction, gap, children, className }: Props) => {
   return (
     <div className={`flex ${direction && `flex-${direction}`} ${gap && `gap-${gap}`} items-center ${className}`}>
       {children}
@@ -15,4 +15,4 @@ const FLex = ({ direction, gap, children, className }: Props) => {
   )
 }
 
-export default FLex
+export default Flex

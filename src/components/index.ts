@@ -1,11 +1,11 @@
-import FLex from "./Flex";
+import Flex from "./Flex";
 import Header from "./Header";
 import SearchAndFilter from "./SearchAndFilter";
 import Main from "./Main";
 import Card from "./Card";
 
 export {
-  FLex,
+  Flex,
   Header,
   SearchAndFilter,
   Main,

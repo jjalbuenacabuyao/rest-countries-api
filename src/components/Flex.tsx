@@ -3,13 +3,14 @@ import React from 'react'
 type Props = {
   direction?: string,
   gap?: string,
+  justify?: string,
   children: JSX.Element | JSX.Element[],
   className?: string,
 }
 
-const Flex = ({ direction, gap, children, className }: Props) => {
+const Flex = ({ direction, gap, justify, children, className }: Props) => {
   return (
-    <div className={`flex ${direction && `flex-${direction}`} ${gap && `gap-${gap}`} items-center ${className}`}>
+    <div className={`flex ${direction && `flex-${direction}`} ${justify && `justify-${justify}`} ${gap && `gap-${gap}`} items-center ${className}`}>
       {children}
     </div>
   )

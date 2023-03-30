@@ -1,31 +1,39 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import Card from './Card';
 import axios from 'axios';
 
 type Props = {
-  filter: string,
+  apiUrl: string,
 }
 
-const Main = ({ filter }: Props) => {
+type Country = {
+  capital: Array<string>,
+  flags: any,
+  name: any,
+  population: number,
+  region: string,
+}
+
+const Main = ({ apiUrl }: Props) => {
   // for filters : subregion,tld,currencies,languages
-  const url: string = filter;
-  const defaultUrl: string = "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags";
-  const [data, setData] = useState<Array<object>>([]);
+  const [data, setData] = useState<Array<Country>>([]);
 
   useEffect(() => {
-    async function fetchData(url: string) : Promise<void> {
-      const response = await axios(url);
+    const fetchData = async () => {
+      const response = await axios(apiUrl);
       setData(response.data);
     }
-    url !== "" ? fetchData(url) : fetchData(defaultUrl);
-  }, [url])
+  }, [apiUrl])
 
   //Only first six countries are displayed in homepage
   const featuredCountryCount : number = 6;
 
-  const featuredCountries : Array<object> = [data.filter(item => data.indexOf(item) < featuredCountryCount)];
+  const featuredCountries : Array<Country> = data.filter(item => data.indexOf(item) < featuredCountryCount);
 
-  console.log(featuredCountries);
-  
+  const cards = featuredCountries.map(country => {
+    console.log(country.name);
+  })
 
   return (
     <main>

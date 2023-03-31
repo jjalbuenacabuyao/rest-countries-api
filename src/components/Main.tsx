@@ -24,6 +24,7 @@ const Main = ({ apiUrl }: Props) => {
       const response = await axios(apiUrl);
       setData(response.data);
     }
+    fetchData();
   }, [apiUrl])
 
   //Only first six countries are displayed in homepage
@@ -31,12 +32,23 @@ const Main = ({ apiUrl }: Props) => {
 
   const featuredCountries : Array<Country> = data.filter(item => data.indexOf(item) < featuredCountryCount);
 
-  const cards = featuredCountries.map(country => {
-    console.log(country.name);
-  })
+  console.log(featuredCountries);
+  
+
+  const cards = featuredCountries.map(country => (
+    <Card 
+      countryName={country.name.common} 
+      population={country.population}
+      region={country.region}
+      capital={country.capital[0]}
+      flag={country.flags.svg}
+      alt={country.flags.alt}
+    />
+  ))
 
   return (
     <main>
+      { cards }
     </main>
   )
 }

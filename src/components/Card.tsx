@@ -5,7 +5,7 @@ type Props = {
   countryName: string,
   population: number,
   region: string,
-  capital: Array<string>,
+  capital: string,
   flag: string,
   alt: string,
 }

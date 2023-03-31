@@ -12,12 +12,12 @@ type Props = {
 
 const Card = ({countryName, population, region, capital, flag, alt}: Props) => {
   return (
-    <Flex direction='col'>
+    <Flex direction='flex-col'>
       <div>
         <img src={flag} alt={alt} />
       </div>
 
-      <Flex direction='col'>
+      <Flex direction='flex-col'>
         <p>{countryName}</p>
         <p>Population: {population}</p>
         <p>Region: {region}</p>

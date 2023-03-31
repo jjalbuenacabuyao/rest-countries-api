@@ -1,9 +1,13 @@
 import React from 'react'
 
+type FlexDirection = "flex-row" | "flex-row-reverse" | "flex-col" | "flex-col-reverse";
+
+type JustifyContent = "justify-normal" | "justify-start" | "justify-end" | "justify-center" | "justify-between" | "justify-around" | "justify-evenly" | "justify-stretch";
+
 type Props = {
-  direction?: "flex-row" | "flex-row-reverse" | "flex-col" | "flex-col-reverse",
+  direction?: FlexDirection,
   gap?: string,
-  justify?: "justify-normal" | "justify-start" | "justify-end" | "justify-center" | "justify-between" | "justify-around" | "justify-evenly" | "justify-stretch",
+  justify?: JustifyContent,
   children?: JSX.Element | JSX.Element[],
   className?: string,
 }

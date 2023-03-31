@@ -6,6 +6,12 @@ type Props = {
 }
 
 const SearchAndFilter = ({ setApiUrl }: Props) => {
+  const regions: Array<string> = ["all", "africa", "america", "asia", "europe", "oceana"];
+
+  const options : JSX.Element[] = regions.map(region => (
+    <option key={region} value={region}>{region}</option>
+  ))
+
   return (
     <FLex>
       <input
@@ -18,11 +24,7 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
         name="Filter by Region"
         id="filter"
         onChange={(e) => setApiUrl(`https://restcountries.com/v3.1/region/${e.target.value}`)}>
-        <option value="africa">Africa</option>
-        <option value="america">America</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="oceana">Oceana</option>
+        {options}
       </select>
     </FLex>
   )

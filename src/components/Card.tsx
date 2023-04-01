@@ -19,12 +19,20 @@ const Card = ({
   alt,
 }: Props) => {
   return (
-    <Flex direction="flex-col" align="item-stretch" className="rounded-lg overflow-hidden">
+    <Flex
+      direction="flex-col"
+      align="item-stretch"
+      className="rounded-lg overflow-hidden"
+    >
       <div>
         <img src={flag} alt={alt} />
       </div>
 
-      <Flex direction="flex-col" align="items-start" className="px-5 py-8 items-start bg-dark-blue">
+      <Flex
+        direction="flex-col"
+        align="items-start"
+        className="px-5 py-8 items-start bg-dark-blue"
+      >
         <p>{countryName}</p>
         <p>Population: {population.toLocaleString()}</p>
         <p>Region: {region}</p>

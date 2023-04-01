@@ -16,7 +16,6 @@ type Country = {
 };
 
 const Main = ({ apiUrl }: Props) => {
-  // for filters : subregion,tld,currencies,languages
   const [data, setData] = useState<Country[]>([]);
 
   useEffect(() => {

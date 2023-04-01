@@ -47,7 +47,7 @@ const Main = ({ apiUrl }: Props) => {
     )
   );
 
-  return <main>{cards}</main>;
+  return <main className="px-12 pt-8 pb-16 flex flex-col gap-10">{cards}</main>;
 };
 
 export default Main;

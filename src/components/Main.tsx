@@ -8,7 +8,7 @@ type Props = {
 }
 
 type Country = {
-  capital: Array<string>,
+  capital: string[],
   flags: any,
   name: any,
   population: number,
@@ -17,7 +17,7 @@ type Country = {
 
 const Main = ({ apiUrl }: Props) => {
   // for filters : subregion,tld,currencies,languages
-  const [data, setData] = useState<Array<Country>>([]);
+  const [data, setData] = useState<Country[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,19 +30,18 @@ const Main = ({ apiUrl }: Props) => {
   //Only first six countries are displayed in homepage
   const featuredCountryCount : number = 6;
 
-  const featuredCountries : Array<Country> = data.filter(item => data.indexOf(item) < featuredCountryCount);
+  const featuredCountries : Country[] = data.filter(item => {
+    data.indexOf(item) < featuredCountryCount
+  });
 
-  console.log(featuredCountries);
-  
-
-  const cards = featuredCountries.map(country => (
+  const cards = featuredCountries.map(({ name, population, region, capital, flags }) => (
     <Card 
-      countryName={country.name.common} 
-      population={country.population}
-      region={country.region}
-      capital={country.capital[0]}
-      flag={country.flags.svg}
-      alt={country.flags.alt}
+      countryName={name.common} 
+      population={population}
+      region={region}
+      capital={capital[0]}
+      flag={flags.svg}
+      alt={flags.alt}
     />
   ))
 

@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import { Header, SearchAndFilter, Main } from '../components'
+import React, { useState } from "react";
+import { Header, SearchAndFilter, Main } from "../components";
 
-type Props = {}
+type Props = {};
 
 const Homepage = (props: Props) => {
-  const [apiUrl, setApiUrl] = useState("https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags");
+  const [apiUrl, setApiUrl] = useState(
+    "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags"
+  );
 
   return (
     <>
@@ -12,7 +14,7 @@ const Homepage = (props: Props) => {
       <SearchAndFilter setApiUrl={setApiUrl} />
       <Main apiUrl={apiUrl} />
     </>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

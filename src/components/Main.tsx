@@ -30,9 +30,9 @@ const Main = ({ apiUrl }: Props) => {
   //Only first six countries are displayed in homepage
   const featuredCountryCount: number = 6;
 
-  const featuredCountries: Country[] = data.filter((item) => {
-    data.indexOf(item) < featuredCountryCount;
-  });
+  const featuredCountries: Country[] = data.filter(
+    (item) => data.indexOf(item) < featuredCountryCount
+  );
 
   const cards = featuredCountries.map(
     ({ name, population, region, capital, flags }) => (

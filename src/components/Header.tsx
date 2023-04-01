@@ -11,7 +11,7 @@ const Header = () => {
   }, [theme]);
 
   return (
-    <header className="px-5 py-8">
+    <header className="px-5 py-8 dark:bg-dark-blue">
       <Flex justify="justify-between">
         <a href="#" className="font-bold">
           Where in the world?

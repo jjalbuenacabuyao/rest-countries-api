@@ -1,5 +1,5 @@
 import React from "react";
-import FLex from "./Flex";
+import Flex from "./Flex";
 
 type Props = {
   setApiUrl: React.Dispatch<React.SetStateAction<string>>;
@@ -21,14 +21,19 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
     </option>
   ));
 
+  const fields: string =
+    "?fields=name,population,region,capital,flags,subregion,tld,currencies,languages";
+
   return (
-    <FLex>
+    <Flex>
       <input
         type="search"
         name="search"
         id="search"
         onChange={(e) =>
-          setApiUrl(`https://restcountries.com/v3.1/name/${e.target.value}`)
+          setApiUrl(
+            `https://restcountries.com/v3.1/name/${e.target.value}/${fields}`
+          )
         }
       />
 
@@ -36,12 +41,14 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
         name="Filter by Region"
         id="filter"
         onChange={(e) =>
-          setApiUrl(`https://restcountries.com/v3.1/region/${e.target.value}`)
+          setApiUrl(
+            `https://restcountries.com/v3.1/region/${e.target.value}/${fields}`
+          )
         }
       >
         {options}
       </select>
-    </FLex>
+    </Flex>
   );
 };
 

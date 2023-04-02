@@ -31,12 +31,18 @@ const Card = ({
       <Flex
         direction="flex-col"
         align="items-start"
-        className="px-5 py-8 items-start bg-dark-blue"
+        className="px-5 py-8 items-start dark:bg-dark-blue"
       >
-        <p>{countryName}</p>
-        <p>Population: {population.toLocaleString()}</p>
-        <p>Region: {region}</p>
-        <p>Capital: {capital}</p>
+        <p className="font-[800] text-lg">{countryName}</p>
+        <p className="font-[600]">
+          Population: <span className="font-[300]">{population.toLocaleString()}</span>
+        </p>
+        <p className="font-[600]">
+          Region: <span className="font-[300]" >{region}</span>
+        </p>
+        <p className="font-[600]">
+          Capital: <span className="font-[300]">{capital}</span>
+        </p>
       </Flex>
     </Flex>
   );

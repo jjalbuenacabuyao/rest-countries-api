@@ -56,9 +56,13 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
           id="search"
           placeholder="Search for a country..."
           onChange={(e) =>
-            setApiUrl(`${baseUrl}/name/${e.target.value}/${fields}`)
+            setApiUrl(
+              e.target.value === ""
+                ? defaultEndpoint
+                : `${baseUrl}/name/${e.target.value}/${fields}`
+            )
           }
-          className="dark:bg-dark-blue w-full pl-16 py-4 rounded-md"
+          className="dark:bg-dark-blue w-full pl-16 py-4 rounded-md appearance-none"
         />
         <HiOutlineSearch className="absolute inset-y-0 left-7 my-auto" />
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header, SearchAndFilter, Main } from "../components";
+import { Header, Main } from "../components";
 
 type Props = {};
 
@@ -11,8 +11,7 @@ const Homepage = (props: Props) => {
   return (
     <>
       <Header />
-      <SearchAndFilter setApiUrl={setApiUrl} />
-      <Main apiUrl={apiUrl} />
+      <Main apiUrl={apiUrl} setApiUrl={setApiUrl} />
     </>
   );
 };

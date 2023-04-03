@@ -25,7 +25,7 @@ const Card = ({
       className="rounded-lg overflow-hidden shadow-md shadow-light-mode-dark-gray dark:shadow-none"
     >
       <div>
-        <img className="h-40 w-full object-cover" src={flag} alt={alt} />
+        <img className="h-48 w-full object-cover" src={flag} alt={alt} />
       </div>
 
       <Flex

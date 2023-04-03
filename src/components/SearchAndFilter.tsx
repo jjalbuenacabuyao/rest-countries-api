@@ -62,7 +62,7 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
                 : `${baseUrl}/name/${e.target.value}/${fields}`
             )
           }
-          className="dark:bg-dark-blue w-full pl-16 py-4 rounded-md appearance-none"
+          className="dark:bg-dark-blue w-full pl-16 py-4 rounded-md appearance-none shadow-md shadow-light-mode-dark-gray dark:shadow-none"
         />
         <HiOutlineSearch className="absolute inset-y-0 left-7 my-auto" />
       </div>
@@ -79,7 +79,7 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
             )
           }
           onClick={() => setExpanded(!expanded)}
-          className="dark:bg-dark-blue  self-start leading-none px-6 py-5 rounded-md appearance-none min-w-[12.5rem]"
+          className="dark:bg-dark-blue  self-start leading-none px-6 py-5 rounded-md appearance-none min-w-[12.5rem] shadow-md shadow-light-mode-dark-gray dark:shadow-none"
         >
           {options}
         </select>

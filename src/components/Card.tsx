@@ -22,7 +22,7 @@ const Card = ({
     <Flex
       direction="flex-col"
       align="item-stretch"
-      className="rounded-lg overflow-hidden"
+      className="rounded-lg overflow-hidden shadow-md shadow-light-mode-dark-gray dark:shadow-none"
     >
       <div>
         <img src={flag} alt={alt} />

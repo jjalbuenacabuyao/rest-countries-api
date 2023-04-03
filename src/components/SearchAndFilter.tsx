@@ -20,7 +20,7 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
 
   const options: JSX.Element[] = regions.map((region) =>
     region === "Default" ? (
-      <option value="" selected hidden>
+      <option key={region} value="" hidden>
         Filter by Region
       </option>
     ) : (

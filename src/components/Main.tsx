@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import SearchAndFilter from "./SearchAndFilter";
 import Card from "./Card";
 import axios from "axios";
 
 type Props = {
   apiUrl: string;
+  setApiUrl: React.Dispatch<React.SetStateAction<string>>;
 };
 
 type Country = {
@@ -14,7 +16,7 @@ type Country = {
   region: string;
 };
 
-const Main = ({ apiUrl }: Props) => {
+const Main = ({ apiUrl, setApiUrl }: Props) => {
   const [data, setData] = useState<Country[]>([]);
 
   useEffect(() => {
@@ -45,7 +47,12 @@ const Main = ({ apiUrl }: Props) => {
     )
   );
 
-  return <main className="px-12 pt-8 pb-16 flex flex-col gap-10">{cards}</main>;
+  return (
+    <main className="px-12 pt-8 pb-16 flex flex-col gap-10">
+      <SearchAndFilter setApiUrl={setApiUrl} />
+      {cards}
+    </main>
+  );
 };
 
 export default Main;

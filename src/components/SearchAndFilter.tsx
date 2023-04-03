@@ -47,7 +47,7 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
       direction="flex-col"
       align="item-stretch"
       gap="gap-9"
-      className="px-4 pt-6"
+      className="px-16-80 pt-6"
     >
       <div className="relative">
         <input

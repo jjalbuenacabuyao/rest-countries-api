@@ -17,6 +17,11 @@ module.exports = {
 
       fontFamily: {
         "nunito": ['Nunito Sans', 'sans-serif'],
+      },
+
+      padding: {
+        "16-80": "clamp(1rem, -0.41rem + 6vw, 5rem)",
+        "48-80": "clamp(3rem, 2.3rem + 3vw, 5rem)",
       }
     },
   },

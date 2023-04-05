@@ -3,7 +3,6 @@ import SearchAndFilter from "./SearchAndFilter";
 import Card from "./Card";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { CountryDetail } from "../containers";
 
 type Props = {
   apiUrl: string;
@@ -17,6 +16,7 @@ type Country = {
   name: any;
   population: number;
   region: string;
+  cca2: string;
 };
 
 const Main = ({ apiUrl, setApiUrl, setCountry }: Props) => {
@@ -37,9 +37,14 @@ const Main = ({ apiUrl, setApiUrl, setCountry }: Props) => {
     (item) => data.indexOf(item) < featuredCountryCount
   );
 
+  console.log(featuredCountries);
+
   const cards = featuredCountries.map(
-    ({ name, population, region, capital, flags }) => (
-      <Link to={`/${name.common.toLowerCase()}`} onClick={() => setCountry(name.common.toLowerCase())}>
+    ({ name, population, region, capital, flags, cca2 }) => (
+      <Link
+        to={`/${cca2.toLowerCase()}`}
+        onClick={() => setCountry(cca2.toLowerCase())}
+      >
         <Card
           countryName={name.common}
           population={population}

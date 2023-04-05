@@ -7,7 +7,7 @@ type Props = {
 
 const Homepage = ({ setCountry }: Props) => {
   const [apiUrl, setApiUrl] = useState(
-    "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags"
+    "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca2"
   );
 
   return (

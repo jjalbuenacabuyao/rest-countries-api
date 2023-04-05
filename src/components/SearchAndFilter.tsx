@@ -36,7 +36,7 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
     "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags";
 
   const fields: string =
-    "?fields=name,population,region,capital,flags,subregion,tld,currencies,languages";
+    "?fields=name,population,region,capital,flags";
 
   const [expanded, setExpanded] = useState(false);
 

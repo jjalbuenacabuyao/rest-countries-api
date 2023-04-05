@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Header, Main } from "../components";
 
-type Props = {};
+type Props = {
+  setCountry: React.Dispatch<React.SetStateAction<string>>;
+};
 
-const Homepage = (props: Props) => {
+const Homepage = ({ setCountry }: Props) => {
   const [apiUrl, setApiUrl] = useState(
     "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags"
   );
@@ -11,7 +13,7 @@ const Homepage = (props: Props) => {
   return (
     <>
       <Header />
-      <Main apiUrl={apiUrl} setApiUrl={setApiUrl} />
+      <Main apiUrl={apiUrl} setApiUrl={setApiUrl} setCountry={setCountry} />
     </>
   );
 };

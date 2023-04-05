@@ -1,10 +1,14 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  country: string;
+}
 
-function CountryDetail({}: Props) {
+function CountryDetail({ country }: Props) {
   return (
-    <div>CountryDetail</div>
+    <main>
+      {country}
+    </main>
   )
 }
 

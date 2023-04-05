@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import SearchAndFilter from "./SearchAndFilter";
 import Card from "./Card";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { CountryDetail } from "../containers";
 
 type Props = {
   apiUrl: string;
   setApiUrl: React.Dispatch<React.SetStateAction<string>>;
+  setCountry: React.Dispatch<React.SetStateAction<string>>;
 };
 
 type Country = {
@@ -16,7 +19,7 @@ type Country = {
   region: string;
 };
 
-const Main = ({ apiUrl, setApiUrl }: Props) => {
+const Main = ({ apiUrl, setApiUrl, setCountry }: Props) => {
   const [data, setData] = useState<Country[]>([]);
 
   useEffect(() => {
@@ -36,14 +39,16 @@ const Main = ({ apiUrl, setApiUrl }: Props) => {
 
   const cards = featuredCountries.map(
     ({ name, population, region, capital, flags }) => (
-      <Card
-        countryName={name.common}
-        population={population}
-        region={region}
-        capital={capital[0]}
-        flag={flags.svg}
-        alt={flags.alt}
-      />
+      <Link to={`/${name.common.toLowerCase()}`} onClick={() => setCountry(name.common.toLowerCase())}>
+        <Card
+          countryName={name.common}
+          population={population}
+          region={region}
+          capital={capital[0]}
+          flag={flags.svg}
+          alt={flags.alt}
+        />
+      </Link>
     )
   );
 

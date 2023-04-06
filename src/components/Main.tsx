@@ -40,7 +40,7 @@ const Main = ({ apiUrl, setApiUrl }: Props) => {
 
   const cards = featuredCountries.map(
     ({ name, population, region, capital, flags, cca2 }) => (
-      <Link to={`/${cca2.toLowerCase()}`}>
+      <Link to={`/${cca2.toLowerCase()}`} key={cca2}>
         <Card
           countryName={name.common}
           population={population}

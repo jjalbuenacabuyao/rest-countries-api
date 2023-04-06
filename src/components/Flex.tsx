@@ -1,5 +1,3 @@
-import React from "react";
-
 type FlexDirection =
   | "flex-row"
   | "flex-row-reverse"

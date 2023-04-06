@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Header, Main } from "../components";
 
 type Props = {};

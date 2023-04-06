@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import Flex from "./Flex";
 

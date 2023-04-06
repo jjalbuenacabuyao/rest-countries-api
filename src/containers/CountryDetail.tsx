@@ -11,7 +11,7 @@ type CountryInfo = {
   population: number;
   region: string;
   tld: string[];
-  currencies: Object;
+  currencies: any;
   subregion: string;
   languages: Object;
   borders: string[];
@@ -62,6 +62,9 @@ function CountryDetail() {
     borders,
   } = data;
 
+  const currencyCode = Object.keys(currencies)[0]
+  const languageCode = Object.keys(languages)[0]
+
   return (
     <>
       <Header />
@@ -82,8 +85,8 @@ function CountryDetail() {
             <p>Region: { region }</p>
             <p>Capital: { capital }</p>
             <p>Top Level Domain: { tld }</p>
-            <p>Currencies: </p>
-            <p>Languages: </p>
+            <p>Currencies: { currencyCode }</p>
+            <p>Languages: {languageCode}</p>
           </div>
         </div>
       </main>

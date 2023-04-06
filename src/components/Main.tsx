@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 type Props = {
   apiUrl: string;
   setApiUrl: React.Dispatch<React.SetStateAction<string>>;
-  setCountry: React.Dispatch<React.SetStateAction<string>>;
 };
 
 type Country = {
@@ -19,7 +18,7 @@ type Country = {
   cca2: string;
 };
 
-const Main = ({ apiUrl, setApiUrl, setCountry }: Props) => {
+const Main = ({ apiUrl, setApiUrl }: Props) => {
   const [data, setData] = useState<Country[]>([]);
 
   useEffect(() => {
@@ -41,10 +40,7 @@ const Main = ({ apiUrl, setApiUrl, setCountry }: Props) => {
 
   const cards = featuredCountries.map(
     ({ name, population, region, capital, flags, cca2 }) => (
-      <Link
-        to={`/${cca2.toLowerCase()}`}
-        onClick={() => setCountry(cca2.toLowerCase())}
-      >
+      <Link to={`/${cca2.toLowerCase()}`}>
         <Card
           countryName={name.common}
           population={population}

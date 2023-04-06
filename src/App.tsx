@@ -1,18 +1,13 @@
-import React, { useState } from 'react'
-import { Homepage, CountryDetail } from './containers'
-import { Route, Routes } from 'react-router-dom'
+import { Homepage, CountryDetail } from "./containers";
+import { Route, Routes } from "react-router-dom";
 
-type Props = {}
-
-const App = (props: Props) => {
-  const [country, setCountry] = useState<string>("");
-
+const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Homepage setCountry={setCountry} />} />
-      <Route path={`/${country}`} element={<CountryDetail country={country} />} />
+      <Route path="/" element={<Homepage />} />
+      <Route path="/:countryCode" element={<CountryDetail />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default App
+export default App;

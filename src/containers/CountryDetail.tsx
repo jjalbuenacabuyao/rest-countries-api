@@ -25,7 +25,18 @@ function CountryDetail() {
     "?fields=name,population,region,capital,flags,subregion,tld,currencies,languages,borders";
   const url: string = `${baseUrl}/${countryCode}/${fields}`;
 
-  const [data, setData] = useState<CountryInfo[]>([]);
+  const [data, setData] = useState<CountryInfo>({
+    capital: [],
+    flags: {},
+    name: {},
+    population: 0,
+    region: "",
+    tld: [],
+    currencies: {},
+    subregion: "",
+    languages: {},
+    borders: [],
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,17 +49,42 @@ function CountryDetail() {
 
   console.log(data);
 
+  const {
+    capital,
+    flags,
+    name,
+    population,
+    region,
+    tld,
+    currencies,
+    subregion,
+    languages,
+    borders,
+  } = data;
+
   return (
     <>
       <Header />
       <main>
-        <Link to="/">
+        <Link to="/" className="flex">
           <BsArrowLeft />
           <span>Back</span>
         </Link>
 
         <div>
-          <div></div>
+          <div>
+            <img src={flags.png} alt={flags.alt} />
+          </div>
+
+          <div>
+            <h1>{name.common}</h1>
+            <p>Population: { population.toLocaleString() }</p>
+            <p>Region: { region }</p>
+            <p>Capital: { capital }</p>
+            <p>Top Level Domain: { tld }</p>
+            <p>Currencies: </p>
+            <p>Languages: </p>
+          </div>
         </div>
       </main>
     </>

@@ -33,10 +33,10 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
   const baseUrl: string = "https://restcountries.com/v3.1/";
 
   const defaultEndpoint: string =
-    "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags";
+    "https://restcountries.com/v3.1/all/?fields=name,population,region,capital,flags,cca2";
 
   const fields: string =
-    "?fields=name,population,region,capital,flags";
+    "?fields=name,population,region,capital,flags,cca2";
 
   const [expanded, setExpanded] = useState(false);
 

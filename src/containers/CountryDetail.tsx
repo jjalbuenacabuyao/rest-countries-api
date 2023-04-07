@@ -11,11 +11,18 @@ type CountryInfo = {
   population: number;
   region: string;
   tld: string[];
-  currencies: any;
+  currencies: Object;
   subregion: string;
   languages: Object;
   borders: string[];
 };
+
+// type Currencies = {
+//   [key: string]: {
+//     name: string,
+//     symbol: string,
+//   }
+// }
 
 function CountryDetail() {
   const { countryCode } = useParams(); //returns the current path
@@ -47,8 +54,6 @@ function CountryDetail() {
     fetchData();
   }, [url]);
 
-  console.log(data);
-
   const {
     capital,
     flags,
@@ -62,12 +67,14 @@ function CountryDetail() {
     borders,
   } = data;
 
-  const currencyCode = Object.keys(currencies)[0]
-  const languageCode = Object.keys(languages)[0]
+  const currency = Object.values(currencies);
+
+  const language = Object.values(languages);
 
   return (
     <>
       <Header />
+
       <main>
         <Link to="/" className="flex">
           <BsArrowLeft />
@@ -81,12 +88,24 @@ function CountryDetail() {
 
           <div>
             <h1>{name.common}</h1>
-            <p>Population: { population.toLocaleString() }</p>
-            <p>Region: { region }</p>
-            <p>Capital: { capital }</p>
-            <p>Top Level Domain: { tld }</p>
-            <p>Currencies: { currencyCode }</p>
-            <p>Languages: {languageCode}</p>
+            <p>Population: {population.toLocaleString()}</p>
+            <p>Region: {region}</p>
+            <p>Capital: {capital}</p>
+            <p>Top Level Domain: {tld}</p>
+            <p>
+              Currencies:{" "}
+              {currency.map((cur, index) =>
+                index === currency.length - 1 ? cur.name 
+                : cur.name + ", "
+              )}
+            </p>
+            <p>
+              Languages:{" "}
+              {language.map((lang, index) =>
+                index === language.length - 1 ? lang 
+                : lang + ", "
+              )}
+            </p>
           </div>
         </div>
       </main>

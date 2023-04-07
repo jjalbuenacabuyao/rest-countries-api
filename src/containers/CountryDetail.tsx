@@ -17,13 +17,6 @@ type CountryInfo = {
   borders: string[];
 };
 
-// type Currencies = {
-//   [key: string]: {
-//     name: string,
-//     symbol: string,
-//   }
-// }
-
 function CountryDetail() {
   const { countryCode } = useParams(); //returns the current path
 
@@ -67,6 +60,8 @@ function CountryDetail() {
     borders,
   } = data;
 
+  console.log(data);
+
   const currency = Object.values(currencies);
 
   const language = Object.values(languages);
@@ -88,24 +83,28 @@ function CountryDetail() {
 
           <div>
             <h1>{name.common}</h1>
-            <p>Population: {population.toLocaleString()}</p>
-            <p>Region: {region}</p>
-            <p>Capital: {capital}</p>
-            <p>Top Level Domain: {tld}</p>
-            <p>
-              Currencies:{" "}
-              {currency.map((cur, index) =>
-                index === currency.length - 1 ? cur.name 
-                : cur.name + ", "
-              )}
-            </p>
-            <p>
-              Languages:{" "}
-              {language.map((lang, index) =>
-                index === language.length - 1 ? lang 
-                : lang + ", "
-              )}
-            </p>
+
+            <div>
+              <p>Population: {population.toLocaleString()}</p>
+              <p>Region: {region}</p>
+              <p>Capital: {capital}</p>
+            </div>
+
+            <div>
+              <p>Top Level Domain: {tld}</p>
+              <p>
+                Currencies:{" "}
+                {currency.map((cur, index) =>
+                  index === currency.length - 1 ? cur.name : cur.name + ", "
+                )}
+              </p>
+              <p>
+                Languages:{" "}
+                {language.map((lang, index) =>
+                  index === language.length - 1 ? lang : lang + ", "
+                )}
+              </p>
+            </div>
           </div>
         </div>
       </main>

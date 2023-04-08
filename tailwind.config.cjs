@@ -22,6 +22,7 @@ module.exports = {
       padding: {
         "16-80": "clamp(1rem, -0.41rem + 6vw, 5rem)",
         "48-80": "clamp(3rem, 2.3rem + 3vw, 5rem)",
+        "24-80": "clamp(1.75rem, 0.61rem + 4.88vw, 5rem)",
       }
     },
   },

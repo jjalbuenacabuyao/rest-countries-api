@@ -54,9 +54,9 @@ const Main = ({ apiUrl, setApiUrl }: Props) => {
   );
 
   return (
-    <main className="pt-8 pb-16 flex flex-col gap-10">
+    <main className="pt-8 pb-16 flex flex-col gap-10 max-w-[1440px] mx-auto">
       <SearchAndFilter setApiUrl={setApiUrl} />
-      <div className="flex flex-col gap-10 sm:grid sm:grid-cols-2 px-48-80">
+      <div className="flex flex-col gap-10 sm:grid sm:grid-cols-2 px-48-80 xl:grid-cols-3">
         {cards}
       </div>
     </main>

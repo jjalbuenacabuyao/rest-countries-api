@@ -74,19 +74,22 @@ function CountryDetail() {
     <>
       <Header />
 
-      <main className="pt-6 px-7 pb-14">
-        <Link to="/" className="inline-flex mb-16 items-center px-6 py-3 dark:bg-dark-blue gap-3 rounded-md shadow-sm shadow-dark-blue dark:shadow-none">
+      <main className="pt-6 px-24-80 pb-14 max-w-[1440px] mx-auto">
+        <Link
+          to="/"
+          className="inline-flex mb-16 items-center px-6 py-3 dark:bg-dark-blue gap-3 rounded-md shadow-sm shadow-dark-blue dark:shadow-none"
+        >
           <BsArrowLeft />
           <span>Back</span>
         </Link>
 
-        <Flex direction="flex-col" gap="gap-11">
+        <Flex direction="flex-col" gap="gap-11" className="lg:flex-row">
           <div className="w-full">
             <img className="w-full" src={flags.png} alt={flags.alt} />
           </div>
 
-          <div className="w-full">
-            <h1 className="font-[800] text-2xl pb-7">{name.common}</h1>
+          <div className="w-full lg:grid lg:grid-cols-2">
+            <h1 className="font-[800] text-2xl pb-7 lg:col-span-2">{name.common}</h1>
 
             <Flex direction="flex-col" align="items-start" gap="gap-5">
               <p className="font-[600]">
@@ -103,8 +106,15 @@ function CountryDetail() {
               </p>
             </Flex>
 
-            <Flex direction="flex-col" align="items-start" gap="gap-4" className="mt-11">
-              <p className="font-[600]">Top Level Domain: <span className="font-[300]">{tld}</span></p>
+            <Flex
+              direction="flex-col"
+              align="items-start"
+              gap="gap-4"
+              className="mt-11 lg:mt-0"
+            >
+              <p className="font-[600]">
+                Top Level Domain: <span className="font-[300]">{tld}</span>
+              </p>
               <p className="font-[600]">
                 Currencies:{" "}
                 <span className="font-[300]">
@@ -122,14 +132,14 @@ function CountryDetail() {
                 </span>
               </p>
             </Flex>
-          </div>
 
-          <Flex direction="flex-col" align="items-start" className="w-full">
-            <p>Border Countries: </p>
-            <Flex className="flex-wrap mt-5" gap="gap-3">
-              {borders.length === 0 ? "None" : borderCountries}
+            <Flex direction="flex-col" align="items-start" className="w-full mt-11 lg:col-span-2">
+              <p className="font-[600]">Border Countries: </p>
+              <Flex className="flex-wrap mt-5" gap="gap-3">
+                {borders.length === 0 ? "None" : borderCountries}
+              </Flex>
             </Flex>
-          </Flex>
+          </div>
         </Flex>
       </main>
     </>

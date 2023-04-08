@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Header } from "../components";
+import { Flex, Header } from "../components";
 import { Link, useParams } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 
@@ -63,50 +63,74 @@ function CountryDetail() {
   console.log(data);
 
   const currency = Object.values(currencies);
-
   const language = Object.values(languages);
+  const borderCountries = borders.map((country) => (
+    <p className="leading-none px-7 py-2 bg-white dark:bg-dark-blue shadow-sm shadow-dark-blue dark:shadow-none">
+      {country}
+    </p>
+  ));
 
   return (
     <>
       <Header />
 
-      <main>
-        <Link to="/" className="flex">
+      <main className="pt-6 px-7 pb-14">
+        <Link to="/" className="inline-flex mb-16 items-center px-6 py-3 dark:bg-dark-blue gap-3 rounded-md shadow-sm shadow-dark-blue dark:shadow-none">
           <BsArrowLeft />
           <span>Back</span>
         </Link>
 
-        <div>
-          <div>
-            <img src={flags.png} alt={flags.alt} />
+        <Flex direction="flex-col" gap="gap-11">
+          <div className="w-full">
+            <img className="w-full" src={flags.png} alt={flags.alt} />
           </div>
 
-          <div>
-            <h1>{name.common}</h1>
+          <div className="w-full">
+            <h1 className="font-[800] text-2xl pb-7">{name.common}</h1>
 
-            <div>
-              <p>Population: {population.toLocaleString()}</p>
-              <p>Region: {region}</p>
-              <p>Capital: {capital}</p>
-            </div>
+            <Flex direction="flex-col" align="items-start" gap="gap-5">
+              <p className="font-[600]">
+                Population:{" "}
+                <span className="font-[300]">
+                  {population.toLocaleString()}
+                </span>
+              </p>
+              <p className="font-[600]">
+                Region: <span className="font-[300]">{region}</span>
+              </p>
+              <p className="font-[600]">
+                Capital: <span className="font-[300]">{capital}</span>
+              </p>
+            </Flex>
 
-            <div>
-              <p>Top Level Domain: {tld}</p>
-              <p>
+            <Flex direction="flex-col" align="items-start" gap="gap-4" className="mt-11">
+              <p className="font-[600]">Top Level Domain: <span className="font-[300]">{tld}</span></p>
+              <p className="font-[600]">
                 Currencies:{" "}
-                {currency.map((cur, index) =>
-                  index === currency.length - 1 ? cur.name : cur.name + ", "
-                )}
+                <span className="font-[300]">
+                  {currency.map((cur, index) =>
+                    index === currency.length - 1 ? cur.name : cur.name + ", "
+                  )}
+                </span>
               </p>
-              <p>
+              <p className="font-[600]">
                 Languages:{" "}
-                {language.map((lang, index) =>
-                  index === language.length - 1 ? lang : lang + ", "
-                )}
+                <span className="font-[300]">
+                  {language.map((lang, index) =>
+                    index === language.length - 1 ? lang : lang + ", "
+                  )}
+                </span>
               </p>
-            </div>
+            </Flex>
           </div>
-        </div>
+
+          <Flex direction="flex-col" align="items-start" className="w-full">
+            <p>Border Countries: </p>
+            <Flex className="flex-wrap mt-5" gap="gap-3">
+              {borders.length === 0 ? "None" : borderCountries}
+            </Flex>
+          </Flex>
+        </Flex>
       </main>
     </>
   );

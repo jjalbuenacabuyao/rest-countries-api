@@ -54,6 +54,7 @@ const SearchAndFilter = ({ setApiUrl }: Props) => {
           type="search"
           name="search"
           id="search"
+          autoComplete="off"
           placeholder="Search for a country..."
           onChange={(e) =>
             setApiUrl(

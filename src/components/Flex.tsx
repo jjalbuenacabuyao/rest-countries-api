@@ -26,7 +26,7 @@ type Props = {
   gap?: string;
   justify?: JustifyContent;
   align?: AlignItems;
-  children?: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[] | string;
   className?: string;
 };
 
